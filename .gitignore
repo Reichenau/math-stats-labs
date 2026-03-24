@@ -212,5 +212,4 @@ __marimo__/
 *.out
 *.toc
 *.synctex.gz
-# Uncomment if you do not want to keep compiled PDFs in git
-# *.pdf
+
