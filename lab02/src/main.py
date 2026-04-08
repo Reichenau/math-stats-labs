@@ -144,7 +144,7 @@ def main():
 				random_state=local_rng,
 			),
 		),
-		("Poisson P(10)", lambda n, local_rng: stats.poisson.rvs(mu=10, size=n, random_state=local_rng)),
+		("Poisson P(5)", lambda n, local_rng: stats.poisson.rvs(mu=5, size=n, random_state=local_rng)),
 		(
 			"Uniform U(-sqrt(3), sqrt(3))",
 			lambda n, local_rng: stats.uniform.rvs(
