@@ -63,13 +63,13 @@ def laplaceDistribution(sizes):
 
 # Распределение Пуассона (дискретное)
 def poissonDistribution(sizes):
-    title = r"Распределение Пуассона $P(k,10)$"
+    title = r"Распределение Пуассона $P(k,5)$"
     dist_name = 'poisson'
     fig, axes = plt.subplots(1, len(sizes), figsize=(24, 8))
     for ax, n in zip(axes, sizes):
-        data = stats.poisson.rvs(mu=10, size=n)
+        data = stats.poisson.rvs(mu=5, size=n)
         x = np.arange(0, 25)
-        y = stats.poisson.pmf(x, mu=10)
+        y = stats.poisson.pmf(x, mu=5)
         bins = np.arange(-0.5, 25.5, 1)
         vizData(ax, data, x, y, n, bins=bins, is_discrete=True)
     finalizeFigure(fig, dist_name)
