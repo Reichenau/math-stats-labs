@@ -104,8 +104,9 @@ def saveBoxplotFigure(dist_name, file_stub, generator, sample_sizes, rng):
 		showfliers=True,
 	)
 
-	for box in boxplot["boxes"]:
-		box.set(facecolor="lightgray", edgecolor="black")
+	colors = ["white", "gray"]
+	for i, box in enumerate(boxplot["boxes"]):
+		box.set(facecolor=colors[i % len(colors)], edgecolor="black")
 	for median in boxplot["medians"]:
 		median.set(color="black", linewidth=1.6)
 	for whisker in boxplot["whiskers"]:
@@ -137,6 +138,7 @@ def saveOutlierShareFigure(rows):
 	bar_width = 0.35
 
 	fig, ax = plt.subplots(figsize=(12, 6))
+	colors = ["white", "gray"]
 	for index, sample_size in enumerate(SAMPLE_SIZES):
 		values = [grouped[dist][sample_size] for dist in distributions]
 		shift = (index - 0.5) * bar_width
@@ -144,7 +146,7 @@ def saveOutlierShareFigure(rows):
 			x_positions + shift,
 			values,
 			width=bar_width,
-			color="lightgray",
+			color=colors[index % len(colors)],
 			edgecolor="black",
 			label=f"n={sample_size}",
 		)
